@@ -9,7 +9,7 @@ let package = Package(
         .executable(name: "HierarchicalReasoningModel", targets: ["HierarchicalReasoningModel"]),
     ],
     dependencies: [
-        .package(name: "mlx-swift", path: "/Users/tanmaybakshi/mlx-swift")
+        .package(url: "https://github.com/ml-explore/mlx-swift", branch: "main"),
     ],
     targets: [
         .executableTarget(

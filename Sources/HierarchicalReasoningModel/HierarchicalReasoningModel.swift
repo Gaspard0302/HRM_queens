@@ -31,7 +31,7 @@ struct HierarchicalReasoningModel {
         )
         eval(model)
 
-        let optimizer = AdamAtan2(learningRate: 1e-4, betas: (0.9, 0.95))
+        let optimizer = AdamW(learningRate: 1e-4, betas: (0.9, 0.95))
 
         var batch = TrainingBatch(initialHiddenState: model.initialHiddenStates, size: 512)
 
