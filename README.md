@@ -21,3 +21,22 @@ Or you can invoke the following command to run inference for a single random puz
 ```
 ./build/Build/Products/Release/HierarchicalReasoningModel infer <checkpoint path> <difficulty>
 ```
+
+## Citation
+
+If you use this repo, please cite:
+
+Wang, G., Li, J., Sun, Y., Chen, X., Liu, C., Wu, Y., Lu, M., Song, S., & Abbasi Yadkori, Y. (2025). *Hierarchical Reasoning Model*. arXiv. https://doi.org/10.48550/arXiv.2506.21734
+
+```bibtex
+@misc{wang2025hrm,
+  title         = {Hierarchical Reasoning Model},
+  author        = {Wang, Guan and Li, Jin and Sun, Yuhao and Chen, Xing and Liu, Changling and Wu, Yue and Lu, Meng and Song, Sen and Abbasi Yadkori, Yasin},
+  year          = {2025},
+  eprint        = {2506.21734},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.AI},
+  doi           = {10.48550/arXiv.2506.21734},
+  url           = {https://arxiv.org/abs/2506.21734}
+}
+```
