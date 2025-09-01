@@ -27,7 +27,8 @@ public func queensLoss(
     // For Queens, we treat this as binary classification per cell
     // We use the first output class (0) as "no queen" and second class (1) as "queen"
     // Convert to logits for binary classification
-    let queenLogits = outputLogits[0..., 1] - outputLogits[0..., 0] // logit difference gives us binary logit
+    // outputLogits has shape [batch_size, seq_len, vocab_size] where vocab_size=2
+    let queenLogits = outputLogits[0..., 0..., 1] - outputLogits[0..., 0..., 0] // logit difference gives us binary logit
     
     let targetFloats = boardTargets.asType(outputLogits.dtype)
     

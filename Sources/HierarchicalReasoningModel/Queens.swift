@@ -294,15 +294,21 @@ public func loadQueensLevels(from directory: String) -> [QueensLevel] {
         return levels
     }
     
-    let levelFiles = files.filter { $0.hasSuffix(".ts") && $0.hasPrefix("level") }
+    let levelFiles = files.filter { $0.hasSuffix(".json") && $0.hasPrefix("level") }.sorted()
     
     for file in levelFiles {
         let filePath = "\(directory)/\(file)"
-        guard let content = try? String(contentsOfFile: filePath),
-              let level = parseQueensLevel(from: content) else {
+        guard let data = try? Data(contentsOf: URL(fileURLWithPath: filePath)) else {
             continue
         }
-        levels.append(level)
+        
+        // Parse JSON
+        if let json = try? JSONSerialization.jsonObject(with: data) as? [String: Any],
+           let size = json["size"] as? Int,
+           let colorRegions = json["colorRegions"] as? [[String]],
+           colorRegions.count == size {
+            levels.append(QueensLevel(size: size, colorRegions: colorRegions))
+        }
     }
     
     print("Loaded \(levels.count) Queens levels")

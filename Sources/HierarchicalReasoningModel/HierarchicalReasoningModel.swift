@@ -33,7 +33,7 @@ struct HierarchicalReasoningModel {
 
         let optimizer = AdamW(learningRate: 1e-4, betas: (0.9, 0.95))
 
-        let queensLevelsPath = "queens_levels"  // Path to downloaded levels
+        let queensLevelsPath = "queens_levels_json"  // Path to converted JSON levels
         var batch = QueensTrainingBatch(
             initialHiddenState: model.initialHiddenStates, 
             size: 512, 
