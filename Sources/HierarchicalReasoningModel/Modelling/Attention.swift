@@ -27,7 +27,7 @@ public class Attention: Module {
         numHeads: Int,
         keyValueHeadsPerHead: Int,
         dtype: DType = .float32,
-        key: MLXArray? = nil,
+        key: MLXArray? = nil
     ) {
         self.dim = dim
         self.headDim = headDim

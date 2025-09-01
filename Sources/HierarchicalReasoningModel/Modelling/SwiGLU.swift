@@ -17,7 +17,7 @@ public class SwiGLU: Module, UnaryLayer {
         dim: Int,
         expansion: Float,
         dtype: DType = .float32,
-        key: MLXArray? = nil,
+        key: MLXArray? = nil
     ) {
         let (upKey, downKey): (MLXArray?, MLXArray?) =
             if let key = key {

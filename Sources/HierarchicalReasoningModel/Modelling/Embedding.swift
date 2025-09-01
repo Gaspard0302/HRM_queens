@@ -16,7 +16,7 @@ public class Embedding: Module, UnaryLayer {
         dim: Int,
         initStd: Float,
         dtype: DType = .float32,
-        key: MLXArray? = nil,
+        key: MLXArray? = nil
     ) {
         self.embeddings = truncNormalInit([vocabSize, dim], std: initStd, dtype: dtype, key: key)
     }

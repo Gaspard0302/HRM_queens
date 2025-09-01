@@ -16,7 +16,7 @@ public func sudokuLoss(
     boardInputs: MLXArray,
     boardTargets: MLXArray,
     segments: MLXArray,
-    key: MLXArray? = nil,
+    key: MLXArray? = nil
 ) -> [MLXArray] {
     let output = model(hiddenStates: hiddenStates, inputs: boardInputs)
 
@@ -169,7 +169,7 @@ public func step(
     model: HRMACTInner,
     optimizer: Optimizer,
     batch: inout TrainingBatch,
-    key: MLXArray,
+    key: MLXArray
 ) -> (output: (Float, Float), qACT: (Float, Float)) {
     let (data, grad) = valueAndGrad(model: model) {
         (model: HRMACTInner, args: [MLXArray]) -> [MLXArray] in

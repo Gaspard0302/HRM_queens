@@ -15,7 +15,7 @@ public func truncNormalInit(
     lower: Float = -2.0,
     upper: Float = 2.0,
     dtype: DType = .float32,
-    key: MLXArray? = nil,
+    key: MLXArray? = nil
 ) -> MLXArray {
     if std == 0.0 {
         return MLXArray.zeros(shape, dtype: dtype)

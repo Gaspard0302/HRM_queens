@@ -18,7 +18,7 @@ public class Linear: Module, UnaryLayer {
         outDim: Int,
         bias: Bool = true,
         dtype: DType = .float32,
-        key: MLXArray? = nil,
+        key: MLXArray? = nil
     ) {
         self.weight = truncNormalInit(
             [inDim, outDim], std: 1.0 / powf(Float(inDim), 0.5), dtype: dtype, key: key)

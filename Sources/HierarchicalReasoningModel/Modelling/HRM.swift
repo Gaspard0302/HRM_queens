@@ -49,7 +49,7 @@ public class HRMACTBlock: Module {
         expansion: Float,
         normEpsilon: Float,
         dtype: DType = .float32,
-        key: MLXArray? = nil,
+        key: MLXArray? = nil
     ) {
         let (selfAttnKey, mlpKey): (MLXArray?, MLXArray?) =
             if let key = key {
@@ -63,7 +63,7 @@ public class HRMACTBlock: Module {
             numHeads: numHeads,
             keyValueHeadsPerHead: 1,
             dtype: dtype,
-            key: selfAttnKey,
+            key: selfAttnKey
         )
         self.mlp = SwiGLU(dim: hiddenSize, expansion: expansion, dtype: dtype, key: mlpKey)
         self.normEpsilon = normEpsilon
@@ -90,7 +90,7 @@ public class HRMACTReasoner: Module {
         expansion: Float,
         normEpsilon: Float,
         dtype: DType = .float32,
-        key: MLXArray? = nil,
+        key: MLXArray? = nil
     ) {
         let keys =
             if let key = key {
@@ -153,7 +153,7 @@ public class HRMACTInner: Module {
         public func map(_ transform: (MLXArray) -> (MLXArray)) -> HiddenStates {
             HiddenStates(
                 highLevel: transform(highLevel),
-                lowLevel: transform(lowLevel),
+                lowLevel: transform(lowLevel)
             )
         }
     }
@@ -223,7 +223,7 @@ public class HRMACTInner: Module {
 
         self.qACTHead = Linear(
             weight: MLXArray.zeros([config.transformers.hiddenSize, 2], dtype: config.dtype),
-            bias: MLXArray.zeros([2], dtype: config.dtype) - 5,
+            bias: MLXArray.zeros([2], dtype: config.dtype) - 5
         )
 
         self.rotaryEmb = RotaryPositionEmbedding(
